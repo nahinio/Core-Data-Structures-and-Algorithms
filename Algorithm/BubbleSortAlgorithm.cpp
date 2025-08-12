@@ -1,23 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bubbleSort(vector<int> &array)
-{
-    int size = array.size();
+void bubbleSort(vector<int>& v){
 
-    for (int step = 0; step < (size - 1); ++step)
-    {
-        int swapped = 0;
+    for (int step = 0; step < v.size(); ++step){
+        bool swapped = false;
 
-        for (int i = 0; i < (size - step - 1); ++i)
-        {
-            if (array[i] > array[i + 1])
-            {
-                swap(array[i], array[i + 1]);
-                swapped = 1;
+        for (int i = 0; i < (v.size() - step - 1); ++i){
+            if (v[i] > v[i + 1]){
+                swap(v[i], v[i + 1]);
+                swapped = true;
             }
         }
-        if (swapped == 0) break;
+        if (!swapped) return;
     }
 }
 
@@ -26,19 +21,17 @@ int main()
     int n;
     cin >> n;
 
-    vector<int> arr;
-    for (int i = 0; i < n; ++i)
-    {
+    vector<int> v;
+    for (int i = 0; i < n; ++i){
         int temp;
         cin >> temp;
-        arr.push_back(temp);
+        v.push_back(temp);
     }
 
-    bubbleSort(arr);
+    bubbleSort(v);
 
-    for (int i = 0; i < n; ++i)
-    {
-        cout << arr[i] << " ";
+    for (int i : v){
+        cout << i << " ";
     }
 
     return 0;
